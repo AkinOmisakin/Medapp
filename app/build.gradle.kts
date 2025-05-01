@@ -20,7 +20,7 @@ android {
 
         ndk {
             // specify the ABI filters for the native libraries
-            abiFilters += listOf("arm64-v8a", "x86_64", "armeabi-v7a", "x86")
+            abiFilters += listOf("arm64-v8a", "x86_64")
         }
     }
 
@@ -44,22 +44,17 @@ android {
         viewBinding = true
     }
 }
+
 //chaquopy block
-chaquopy {
-    defaultConfig {
-        version = "3.11"
+//chaquopy {
+//    defaultConfig {
+//        version = "3.11"
+//
+//    }
+//}
 
-        pip {
-            install("-r", "requirements.txt")
-        }
-        pyc {
-            src = true
-        }
 
-    }
-}
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -68,6 +63,8 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.fragment.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
